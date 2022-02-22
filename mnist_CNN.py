@@ -56,15 +56,17 @@ def plot_result(model, x_test, history, epochs=10):
         plt.axis('off')
     plt.show()
 
+    x = np.arange(1, epochs+1)
+    
     fig = plt.figure(figsize=(7, 5))
     ax = fig.add_subplot(1,2,1)
-    ax.plot(np.array(range(epochs))+1, history.history["accuracy"], label="Accuracy")
-    ax.plot(np.array(range(epochs))+1, history.history["val_accuracy"], label="Val_Accuracy")
+    ax.plot(x, history.history["accuracy"], label="Accuracy")
+    ax.plot(x, history.history["val_accuracy"], label="Val_Accuracy")
     ax.legend()
 
     ax = fig.add_subplot(1,2,2)
-    ax.plot(np.array(range(epochs))+1, history.history["loss"], label="Loss")
-    ax.plot(np.array(range(epochs))+1, history.history["val_loss"], label="Val_loss")
+    ax.plot(x, history.history["loss"], label="Loss")
+    ax.plot(x, history.history["val_loss"], label="Val_loss")
     ax.legend()
     plt.show()
 
